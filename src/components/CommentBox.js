@@ -12,13 +12,16 @@ class CommentBox extends React.Component {
 
     this.props.saveComment(this.state.comment)
 
-    this.setState({ comment: "" });
+    this.setState({ comment: ""});
   };
+  componentDidMount(){
+    this.props.setTitle('Luiz')
+  }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h4> Add a Comment</h4>
+        <h4> {this.props.title} </h4>
         <textarea value={this.state.comment} onChange={this.handleChange} />
         <div>
           <button> Submit a comment! </button>
@@ -28,4 +31,8 @@ class CommentBox extends React.Component {
   }
 }
 
-export default connect(null, actions)(CommentBox);
+function mapStateToProps(state) {
+  return { title: state.title };
+}
+
+export default connect(mapStateToProps, actions)(CommentBox);
