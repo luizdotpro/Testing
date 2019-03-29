@@ -13,10 +13,9 @@ class CommentBox extends React.Component {
     this.props.saveComment(this.state.comment)
 
     this.setState({ comment: ""});
-  };
-  componentDidMount(){
+
     this.props.setTitle('Luiz')
-  }
+  };
 
   render() {
     return (

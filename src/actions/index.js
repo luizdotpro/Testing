@@ -8,8 +8,9 @@ export function saveComment(comment){
 }
 
 export function setTitle(title){
+    const newTitle = title+='!!!'
     return{
         type: SET_TITLE,
-        payload: title
+        payload: newTitle
     }
 }
