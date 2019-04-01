@@ -5,6 +5,21 @@ import * as actions from "actions"
 class CommentBox extends React.Component {
   state = { comment: "" };
 
+  componentDidMount(){
+    this.shouldNavigateAway()
+  }
+
+  componentDidUpdate(){
+    this.shouldNavigateAway()
+  }
+
+  shouldNavigateAway(){
+    if(!this.props.auth){
+      console.log(this.props.auth)
+       this.props.history.push('/')
+    }
+  }
+
   handleChange = e => this.setState({ comment: e.target.value });
 
   handleSubmit = e => {
@@ -34,7 +49,8 @@ class CommentBox extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return { title: state.title };
+  return { title: state.title,
+            auth: state.auth };
 }
 
 export default connect(mapStateToProps, actions)(CommentBox);
