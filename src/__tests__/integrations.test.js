@@ -20,8 +20,7 @@ it("can fetch a list of comments and display then", done => {
   //Attempt to render the *entire* App
   const wrap = mount(
     <Root>
-      {" "}
-      <App />{" "}
+      <App />
     </Root>
   );
 
